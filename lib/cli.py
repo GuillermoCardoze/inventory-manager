@@ -2,7 +2,7 @@
 
 from helpers import (
     exit_program,
-    helper_1
+    list_manufactures
 )
 
 
@@ -12,8 +12,8 @@ def main():
         choice = input("> ")
         if choice == "0":
             exit_program()
-        elif choice == "1":
-            helper_1()
+        elif choice == "M":
+            list_manufactures()
         else:
             print("Invalid choice")
 
