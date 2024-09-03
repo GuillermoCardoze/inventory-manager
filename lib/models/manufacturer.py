@@ -1,4 +1,6 @@
+# lib/models/manufacturer.py
 from models.__init__ import CONN, CURSOR
+from models.product import Product
 
 class Manufacturer:
 
@@ -25,7 +27,7 @@ class Manufacturer:
         if isinstance(location, str) and location.strip():
             self._location = location
         else:
-            raise ValueError("Location must be a city and state. Please enter Valid location. ")
+            raise ValueError("Location must be a country. Please enter Valid location. ")
         
     @classmethod
     def create_table(cls):

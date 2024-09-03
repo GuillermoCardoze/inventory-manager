@@ -2,8 +2,13 @@
 # lib/debug.py
 
 from models.__init__ import CONN, CURSOR
-import ipdb
-    
+from models.manufacturer import Manufacturer
+from models.product import Product
+import ipdb 
+
+
+
+
 ipdb.set_trace() 
 
 # breakpoint()

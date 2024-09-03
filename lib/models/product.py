@@ -1,18 +1,19 @@
+# lib/models/product.py
 from models.__init__ import CONN, CURSOR
 
 
 class Product:
     
-    def __init__(self, category, color, quantity, manufacturer_id=0, id=None):
+    def __init__(self, category, model, quantity, manufacturer_id=0, id=None):
         self.id = id
         self.category = category
-        self.color = color
+        self.model = model
         self.quantity = quantity
         self.manufacturer_id = manufacturer_id
     
     @property
     def category(self):
-        return self._categroy
+        return self._category
     
     @category.setter
     def category(self, category):
@@ -22,15 +23,15 @@ class Product:
             raise ValueError("Task must be at least 2 characters and less than 25 characters long.") 
         
     @property
-    def color(self):
-        return self._color
+    def model(self):
+        return self._model
 
-    @color.setter
-    def color(self, color):
-        if isinstance(color, str) and color.strip():
-            self._color = color
+    @model.setter
+    def model(self, model):
+        if isinstance(model, str) and model.strip():
+            self._model = model
         else:
-            raise ValueError("Color cannot be empty. Please enter a valid color.")
+            raise ValueError("model cannot be empty. Please enter a valid model.")
 
 
     @property
@@ -61,7 +62,7 @@ class Product:
             CREATE TABLE IF NOT EXISTS product (
                 id INTEGER PRIMARY KEY,
                 category TEXT,
-                color TEXT,
+                model TEXT,
                 quantity INTEGER,
                 manufacturer_id INTEGER,
                 FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(id)
@@ -81,26 +82,26 @@ class Product:
             self.update()
         else:
             sql = """
-                INSERT INTO product (category, color, quantity, manufacturer_id)
+                INSERT INTO product (category, model, quantity, manufacturer_id)
                 VALUES (?, ?, ?, ?)
             """
-            CURSOR.execute(sql, (self.category, self.color, self.quantity, self.manufacturer_id))
+            CURSOR.execute(sql, (self.category, self.model, self.quantity, self.manufacturer_id))
             CONN.commit()
             self.id = CURSOR.lastrowid
 
     @classmethod
-    def create(cls, category, color, quantity, manufacturer_id):
-        product = cls(category, color, quantity, manufacturer_id)
+    def create(cls, category, model, quantity, manufacturer_id):
+        product = cls(category, model, quantity, manufacturer_id)
         product.save()
         return product
     
     def update(self):
         sql = """
             UPDATE product
-            SET category = ?, color = ?, quantity = ?, manufacturer_id = ?
+            SET category = ?, model = ?, quantity = ?, manufacturer_id = ?
             WHERE id = ?
         """
-        CURSOR.execute(sql, (self.category, self.color, self.quantity, self.manufacturer_id))
+        CURSOR.execute(sql, (self.category, self.model, self.quantity, self.manufacturer_id))
         CONN.commit()
 
     def delete(self):
