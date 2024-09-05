@@ -63,7 +63,7 @@ class Manufacturer:
         return manufacturer
     
     def update(self):
-        sql = "UPDATE manufacture SET name = ?, location = ? WHERE id = ?"
+        sql = "UPDATE manufacturer SET name = ?, location = ? WHERE id = ?"
         CURSOR.execute(sql, (self.name, self.location, self.id))
         CONN.commit()
 

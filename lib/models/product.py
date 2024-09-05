@@ -101,7 +101,7 @@ class Product:
             SET category = ?, model = ?, quantity = ?, manufacturer_id = ?
             WHERE id = ?
         """
-        CURSOR.execute(sql, (self.category, self.model, self.quantity, self.manufacturer_id))
+        CURSOR.execute(sql, (self.category, self.model, self.quantity, self.manufacturer_id, self.id))
         CONN.commit()
 
     def delete(self):
@@ -121,9 +121,16 @@ class Product:
         rows = CURSOR.execute(sql).fetchall()
         return [cls.instance_from_db(row) for row in rows]
     
+    
     @classmethod
     def find_by_category(cls, category):
         category = category.lower()
         sql = "SELECT * FROM product WHERE LOWER(category) = ?"
-        row = CURSOR.execute(sql, (category,)).fetchone()
-        return cls.instance_from_db(row) if row else None
+        rows = CURSOR.execute(sql, (category,)).fetchall()
+        return [cls.instance_from_db(row) for row in rows] if rows else []
+
+    @classmethod
+    def get_all_categories(cls):
+        sql = "SELECT DISTINCT category FROM product"
+        rows = CURSOR.execute(sql).fetchall()
+        return [row[0] for row in rows] if rows else []
