@@ -355,6 +355,6 @@ def find_product_by_category():
             print("Category description must be greater than 1 character. Please try again.")
         
 def exit_program():
-    # Exit the program with a goodbye message
+    # Exit the program 
     print("Goodbye!")
     exit()
