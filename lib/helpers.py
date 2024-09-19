@@ -15,8 +15,8 @@ def add_manufacturer():
             return
         if not name:
             print("Name cannot be empty. Please enter a valid name.")
-            continue
-        if name.isdigit():
+            continue    
+        if name.isdigit(): #checks if string is all digits
             print("Name cannot be a digit. Please enter a valid name.")
             continue
         if len(name) <= 1 or len(name) >= 15:
@@ -29,7 +29,7 @@ def add_manufacturer():
                 return
             if not location:
                 print("Location cannot be empty. Please enter a valid location.")
-            elif location.isdigit():
+            elif location.isdigit(): # isdigit() checks if string is all digits
                 print("Location cannot be all digits. Please enter a valid location.")
             else:
                 break
@@ -334,8 +334,6 @@ def find_product_by_category():
         else:
             print("Category description must be greater than 1 character. Please try again.")
         
-
-
 def exit_program():
     print("Goodbye!")
     exit()

@@ -10,8 +10,10 @@ from helpers import (
     update_product,
     find_manufacturer_by_name,
     find_product_by_category,
+    exit_program,
 )
 
+# This function displays the main menu options to the user.
 def main_page():
     print("*********************************************************************")
     print("*                          INVENTORY MANAGER                        *")
@@ -25,6 +27,7 @@ def main_page():
     print("*                 Press E to Exit App                               *")
     print("---------------------------------------------------------------------")
 
+# This function handles viewing and managing manufacturers.
 def view_manufacturers():
     while True:
         list_manufacturer()
@@ -41,6 +44,7 @@ def view_manufacturers():
         print("*                  Press 6.  Back to Main Menu                      *")
         print("---------------------------------------------------------------------")
 
+        # Captures the user's choice and calls the corresponding function
         choice = input("Enter your choice: ")
         if choice == '1':
             add_manufacturer()
@@ -57,22 +61,24 @@ def view_manufacturers():
         else:
             print("Invalid choice, please try again.")
 
+# This function handles viewing and managing products.
 def manage_product():
     while True:
-        print("*********************************************************************")
-        print("*                          MANAGE Products                        *")
-        print("*********************************************************************")
-        print("*                Please choose from the following:                  *")
-        print("*********************************************************************")
-        print("*                  Press 1.  View All Product                        *")
-        print("*                  Press 2.  Add New Product                          *")
-        print("*                  Press 3.  Delete a Product                         *")
-        print("*                  Press 4.  Update a Product                         *")
-        print("*                  Press 5.  Find a Product by Category                 *")
-        print("*                  Press 6.  View manufacturers                        *")
-        print("*                  Press 7.  Back to Main Menu                      *")
-        print("---------------------------------------------------------------------")
+        print("******************************************************************")
+        print("*                          MANAGE Products                       *")
+        print("******************************************************************")
+        print("*                Please choose from the following:               *")
+        print("******************************************************************")
+        print("*                  Press 1.  View All Product                    *")
+        print("*                  Press 2.  Add New Product                     *")
+        print("*                  Press 3.  Delete a Product                    *")
+        print("*                  Press 4.  Update a Product                    *")
+        print("*                  Press 5.  Find a Product by Category          *")
+        print("*                  Press 6.  View manufacturers                  *")
+        print("*                  Press 7.  Back to Main Menu                   *")
+        print("------------------------------------------------------------------")
 
+        # Captures the user's choice and calls the corresponding function
         choice = input("Enter your choice: ")
         if choice == '1':
             list_product()
@@ -91,10 +97,7 @@ def manage_product():
         else:
             print("Invalid choice, please try again.")
 
-def exit_program():
-    print("Exiting the app. Good Day!")
-    exit()
-
+# Main function that runs the application and provides access to the main menu.
 def main():
     while True:
         main_page()
@@ -108,5 +111,6 @@ def main():
         else:
             print("Invalid choice, please try again.")
 
+# Entry point for the script. This ensures that the program runs when the script is executed directly.
 if __name__ == "__main__":
     main()

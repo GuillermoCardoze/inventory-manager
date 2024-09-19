@@ -4,11 +4,11 @@
 from models.__init__ import CONN, CURSOR
 from models.manufacturer import Manufacturer
 from models.product import Product
-import ipdb 
 
 
+# def reset_database():
+#     class.
 
+ 
 
-ipdb.set_trace() 
-
-# breakpoint()
+breakpoint()
