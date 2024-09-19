@@ -16,8 +16,6 @@ from helpers import (
 # This function displays the main menu options to the user.
 def main_page():
     print("*********************************************************************")
-    print("*                          INVENTORY MANAGER                        *")
-    print("*********************************************************************")
     print("*                     Welcome to Inventory Manager!                 *")
     print("*********************************************************************")
     print("*                      Please choose from the following:            *")
