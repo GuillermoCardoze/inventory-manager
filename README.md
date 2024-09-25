@@ -10,12 +10,12 @@ Main Menu
 - Exit App (E): Exit the application.
 
 Manufacturers menu:
-- View All Manufacturer Display a list of all manufactureres.
+- View All Manufacturer Display a list of all manufacturers.
 - Add New Manufacturer: Add a new manufacturer.
 - Delete a Manufacturer: Remove a manufacturer.
 - Update a Manufacturer: Update the details of an existing manufacturer.
 
-Producte menu:
+Product menu:
 - View All Products: Display a list of all products.
 - Add New Product: Add a new product to the list.
 - Delete a Product: Remove a product from the list.
