@@ -8,39 +8,36 @@ from helpers import (
     add_product,
     delete_product,
     update_product,
-    find_manufacturer_by_name,
-    find_product_by_category,
     exit_program,
 )
 
 # This function displays the main menu options to the user.
 def main_page():
-    print("*********************************************************************")
-    print("*                     Welcome to Inventory Manager!                 *")
-    print("*********************************************************************")
-    print("*                      Please choose from the following:            *")
-    print("*********************************************************************")
-    print("*                 Press V to View All Manufacturers                 *")
-    print("*                 Press M to Manage and View Products               *")
-    print("*                 Press E to Exit App                               *")
-    print("---------------------------------------------------------------------")
+    stars()
+    print("   Welcome to Inventory Manager!   ")
+    stars()
+    print("   Choose from the following:   ")
+    stars()
+    print("   Press V to View All Manufacturers   ")
+    print("   Press M to Manage and View Products   ")
+    print("   Press E to Exit App   ")
+    dashes()
 
 # This function handles viewing and managing manufacturers.
 def view_manufacturers():
     while True:
         list_manufacturer()
-        print("*********************************************************************")
-        print("*                         MANAGE Manufacturers                      *")
-        print("*********************************************************************")
-        print("*                Please choose from the following:                  *")
-        print("*********************************************************************")
-        print("*                  Press 1.  Add New Manufacutrer                   *")
-        print("*                  Press 2.  Delete a Manufacutrer                  *")
-        print("*                  Press 3.  Update a Manufacutrer                  *")
-        print("*                  Press 4.  Find a Manufacutrer by Name            *")
-        print("*                  Press 5.  Manage Products                        *")
-        print("*                  Press 6.  Back to Main Menu                      *")
-        print("---------------------------------------------------------------------")
+        stars()
+        print("   MANAGE Manufacturers   ")
+        stars()
+        print("   Choose from the following:   ")
+        stars()
+        print("   Press 1.  Add New Manufacutrer   ")
+        print("   Press 2.  Delete a Manufacutrer   ")
+        print("   Press 3.  Update a Manufacutrer   ")
+        print("   Press 4.  Manage Products   ")
+        print("   Press 5.  Back to Main Menu   ")
+        dashes()
 
         # Captures the user's choice and calls the corresponding function
         choice = input("Enter your choice: ")
@@ -51,10 +48,8 @@ def view_manufacturers():
         elif choice == '3':
             update_manufacturer()
         elif choice == '4':
-            find_manufacturer_by_name()
-        elif choice == '5':
             manage_product()  
-        elif choice == '6':
+        elif choice == '5':
             main()
         else:
             print("Invalid choice, please try again.")
@@ -62,19 +57,18 @@ def view_manufacturers():
 # This function handles viewing and managing products.
 def manage_product():
     while True:
-        print("******************************************************************")
-        print("*                          MANAGE Products                       *")
-        print("******************************************************************")
-        print("*                Please choose from the following:               *")
-        print("******************************************************************")
-        print("*                  Press 1.  View All Product                    *")
-        print("*                  Press 2.  Add New Product                     *")
-        print("*                  Press 3.  Delete a Product                    *")
-        print("*                  Press 4.  Update a Product                    *")
-        print("*                  Press 5.  Find a Product by Category          *")
-        print("*                  Press 6.  View manufacturers                  *")
-        print("*                  Press 7.  Back to Main Menu                   *")
-        print("------------------------------------------------------------------")
+        stars()
+        print("   MANAGE Products   ")
+        stars()         
+        print("   Choose from the following:   ")
+        stars()
+        print("   Press 1.  View All Product   ")
+        print("   Press 2.  Add New Product   ")
+        print("   Press 3.  Delete a Product   ")
+        print("   Press 4.  Update a Product   ")
+        print("   Press 5.  View manufacturers   ")
+        print("   Press 6.  Back to Main Menu   ")
+        dashes()
 
         # Captures the user's choice and calls the corresponding function
         choice = input("Enter your choice: ")
@@ -87,10 +81,8 @@ def manage_product():
         elif choice == '4':
             update_product()
         elif choice == '5':
-            find_product_by_category()
-        elif choice == '6':
             view_manufacturers() 
-        elif choice == '7':
+        elif choice == '6':
             main()
         else:
             print("Invalid choice, please try again.")
@@ -108,6 +100,12 @@ def main():
             exit_program()
         else:
             print("Invalid choice, please try again.")
+
+def dashes():
+    print("------------------------------")   
+
+def stars():
+    print("******************************")
 
 # Entry point for the script. This ensures that the program runs when the script is executed directly.
 if __name__ == "__main__":

@@ -197,7 +197,7 @@ def add_product():
                 product = Product(category=category, model=model, quantity=quantity, manufacturer_id=manufacturer.id)
                 product.save()
                 print("***********************")
-                print(f"Product '{category}' added for {manufacturer.name}.")
+                print(f"Product '{model}' added for {manufacturer.name}.")
                 break
             else:
                 print("Invalid selection. Please enter a valid number.")
@@ -235,7 +235,7 @@ def delete_product():
                             deleted_product = manufacturer_products[product_index]
                             deleted_product.delete()
                             print("***********************")
-                            print(f"product '{deleted_product.category}' deleted.")
+                            print(f"product '{deleted_product.model}' deleted from {manufacturer.name}.")
                             print("***********************")
                             break
                         else:
@@ -297,7 +297,7 @@ def update_product():
 
                             product.update()
                             print("***********************")
-                            print(f"Product '{product.category}' updated.")
+                            print(f"Product '{product.model}' updated.")
                             print("***********************")
                             break
                         else:
@@ -310,49 +310,6 @@ def update_product():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-def find_manufacturer_by_name():
-    # Allow the user to search for a manufacturer by name
-    name = input("Enter the name of the manufacturer to find or enter '.' to go back: ").strip()
-    
-    if name == ".":
-        print("Returning to the previous menu...")
-        return
-
-    if len(name) > 1:
-        found_manufacturer = Manufacturer.find_by_name(name)
-        if found_manufacturer:
-            print("***********************")
-            print(f"Name: {found_manufacturer.name} | Location: {found_manufacturer.location}")
-            print("***********************")
-        else:
-            print(f"No manufacturer found with the name '{name}'.")
-    else:
-        print("Name must be greater than 1 character. Please try again.")
-
-
-
-def find_product_by_category():
-    # Allow the user to search for products by category
-    while True:
-        category = input("Enter the category description to find (must be greater than 1 character) or enter '.' to go back: ").strip()
-
-        if category == ".":
-            print("Returning to the previous menu...")
-            return
-
-        if len(category) > 1:
-            found_products = Product.find_by_category(category)
-            if found_products:
-                for product in found_products:
-                    manufacturer = Manufacturer.find_by_id(product.manufacturer_id)
-                    print("***********************")
-                    print(f"Product: {product.category} | Model: {product.model} | Quantity: {product.quantity}")
-                    print(f"Assigned to: {manufacturer.name} (Location: {manufacturer.location})")
-                    print("***********************")
-            else:
-                print(f"No products found with the category '{category}'.")
-        else:
-            print("Category description must be greater than 1 character. Please try again.")
         
 def exit_program():
     # Exit the program 

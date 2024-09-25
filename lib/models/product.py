@@ -141,16 +141,16 @@ class Product:
         return [cls.instance_from_db(row) for row in rows]
     
     # Class method to find all products with a specific category.
-    @classmethod
-    def find_by_category(cls, category):
-        category = category.lower()
-        sql = "SELECT * FROM product WHERE LOWER(category) = ?"
-        rows = CURSOR.execute(sql, (category,)).fetchall()
-        return [cls.instance_from_db(row) for row in rows] if rows else []
+    # @classmethod
+    # def find_by_category(cls, category):
+    #     category = category.lower()
+    #     sql = "SELECT * FROM product WHERE LOWER(category) = ?"
+    #     rows = CURSOR.execute(sql, (category,)).fetchall()
+    #     return [cls.instance_from_db(row) for row in rows] if rows else []
 
-    # Class method to retrieve all distinct categories from the database.
-    @classmethod
-    def get_all_categories(cls):
-        sql = "SELECT DISTINCT category FROM product"
-        rows = CURSOR.execute(sql).fetchall()
-        return [row[0] for row in rows] if rows else []
+    # # Class method to retrieve all distinct categories from the database.
+    # @classmethod
+    # def get_all_categories(cls):
+    #     sql = "SELECT DISTINCT category FROM product"
+    #     rows = CURSOR.execute(sql).fetchall()
+    #     return [row[0] for row in rows] if rows else []
