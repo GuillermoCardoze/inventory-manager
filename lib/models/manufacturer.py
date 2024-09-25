@@ -99,20 +99,6 @@ class Manufacturer:
         rows = CURSOR.execute(sql).fetchall() 
         return [cls.instance_from_db(row) for row in rows]  # Returns a list of Manufacturer instances
     
-    # Class method to find a Manufacturer by name (case-insensitive).
-    # @classmethod
-    # def find_by_name(cls, name):
-    #     name = name.lower()  
-    #     sql = "SELECT * FROM manufacturer WHERE LOWER(name) = ?"
-    #     row = CURSOR.execute(sql, (name,)).fetchone()  
-    #     return cls.instance_from_db(row) if row else None  # Returns the Manufacturer instance if found
-    
-    # # Class method to find a Manufacturer by its 'id'.
-    # @classmethod
-    # def find_by_id(cls, id):
-    #     sql = "SELECT * FROM manufacturer WHERE id = ?"
-    #     row = CURSOR.execute(sql, (id,)).fetchone() 
-    #     return cls.instance_from_db(row) if row else None  # Returns the Manufacturer instance if found
     
     # Retrieves all Products associated with this Manufacturer using the 'manufacturer_id' foreign key.
     def product(self):
